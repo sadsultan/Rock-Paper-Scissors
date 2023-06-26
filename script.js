@@ -19,3 +19,5 @@ function playRound(playerSelection, computerSelection) {
         return "You lose!";
     }
 }
+
+const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
