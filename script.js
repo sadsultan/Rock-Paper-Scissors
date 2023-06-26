@@ -4,3 +4,7 @@ let beats = {
     paper: "rock",
     scissors: "paper"
 }
+
+function computerPlay() {
+    return choices[Math.floor(Math.random() * choices.length)];
+}
