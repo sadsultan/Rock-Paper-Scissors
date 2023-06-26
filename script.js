@@ -14,9 +14,9 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "Tie!";
     } else if (beats[computerSelection] == playerSelection) {
-        return "You win!";
-    } else {
         return "You lose!";
+    } else {
+        return "You win!";
     }
 };
 
