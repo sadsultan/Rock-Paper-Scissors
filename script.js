@@ -20,4 +20,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+let playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+let computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
