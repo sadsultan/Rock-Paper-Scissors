@@ -22,10 +22,13 @@ function playRound(playerSelection, computerSelection) {
     }
 };
 
-while (1) {
-    playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-    computerSelection = computerPlay();
-    console.log("Player: " + playerSelection);
-    console.log("Computer: " + computerSelection);
-    console.log(playRound(playerSelection, computerSelection));
-}
+
+
+
+// while () {
+    // playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
+    // computerSelection = computerPlay();
+    // console.log("Player: " + playerSelection);
+    // console.log("Computer: " + computerSelection);
+    // console.log(playRound(playerSelection, computerSelection));
+// }
