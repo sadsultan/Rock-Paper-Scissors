@@ -1,12 +1,15 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
     height: 100vh;
     background-image: url("Images/bg_img.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: 0.3s;
 }
 
 .title-card{
@@ -14,10 +17,4 @@ body {
     padding: 0;
     text-align: center;
     font-size: 30px;
-}
-
-h1,h3 {
-    margin: 0;
-    padding: 0;
-    padding-bottom: 5px;
 }
