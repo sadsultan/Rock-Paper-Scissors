@@ -3,6 +3,12 @@ body {
     margin: 0;
 }
 
+@font-face {
+    font-family: 'pixel';
+    src: url('fonts/PublicPixel-z84yD.ttf') format('truetype');
+}
+  
+
 .container {
     display: flex;
     flex-direction: column;
@@ -18,19 +24,40 @@ body {
 }
 
 .title-card{
-    width: 60%;
-    margin: 0;
-    padding: 10px 15px;
+    padding: 15px 25px;
     text-align: center;
-    font-size: larger;
     background-color: rgb(54, 16, 91);
     border-radius: 10px;
     border: 4px dashed yellow;
-    color: rgb(242, 242, 106);
+    color: yellow;
+    text-shadow: 1px 1px 1px rgb(67, 67, 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: 'pixel', Arial, sans-serif;
+    font-weight: normal;
 }
 
-h1,h3 {
-    margin: 0;
-    padding: 8px;
-    text-align: center;
+h1{
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.title-card > .item {
+    margin: 15px 25px;
+}
+
+.title-card > button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: white 2px solid;
+    background-color: purple;
+    color: yellow;
+    font-family: 'pixel', Arial, sans-serif;
+    cursor: pointer;
 }
