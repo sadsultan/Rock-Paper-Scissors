@@ -21,14 +21,3 @@ function playRound(playerSelection, computerSelection) {
         return "You win this round!";
     }
 };
-
-
-
-
-// while () {
-    // playerSelection = prompt("Rock, paper, or scissors?").toLowerCase();
-    // computerSelection = computerPlay();
-    // console.log("Player: " + playerSelection);
-    // console.log("Computer: " + computerSelection);
-    // console.log(playRound(playerSelection, computerSelection));
-// }

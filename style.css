@@ -1,3 +1,8 @@
 body {
-    background-color: black;
+    background-color: #f3f3f3;
+}
+
+button {
+    background-color: #c1626200;
+    border: none;
 }
