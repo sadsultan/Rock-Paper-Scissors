@@ -2,19 +2,16 @@ let playerSelection;
 let computerSelection;
 let playerScore = 0;
 let computerScore = 0;
-let choices = ["rock", "paper", "scissors"];
+let endGameMessage = "";
+let choices = ["rock", "scissors", "paper", "rock", "scissors", "paper"];
 let beats = {
     "rock": "scissors",
     "paper": "rock",
     "scissors": "paper"
 };
 
-function name(params) {
-    
-}
-
 function computerPlay() {
-    return choices[Math.floor(Math.random() * 3)];
+    return choices[Math.floor(Math.random() * 6)];
 };
 
 
@@ -31,17 +28,24 @@ function playRound() {
 };
 
 function playGame() {
-    switch (playRound()) {
-        case "tie":
-            console.log("It's a tie!");
-            break;
-        case "win":
-            console.log("You win!");
-            playerScore++;
-            break;
-        default:
-            console.log("You lose!");
-            computerScore++;
-            break;
+    for (let i = 0; i < 5; i++) {
+        switch (playRound()) {
+            case "tie":
+                console.log("It's a tie!");
+                break;
+            case "win":
+                console.log("You win!");
+                playerScore++;
+                break;
+            default:
+                console.log("You lose!");
+                computerScore++;
+                break;
+        }
+    }
+    if (playerScore > computerScore) {
+        endGameMessage="Congratulations! You win the game!";
+    } else(playerScore < computerScore) {
+        endGameMessage="Too bad! You lose the game!";
     }
 }
