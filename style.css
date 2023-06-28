@@ -18,8 +18,19 @@ body {
 }
 
 .title-card{
+    width: 60%;
     margin: 0;
-    padding: 0;
+    padding: 10px 15px;
     text-align: center;
-    font-size: 30px;
+    font-size: larger;
+    background-color: rgb(54, 16, 91);
+    border-radius: 10px;
+    border: 4px dashed yellow;
+    color: rgb(242, 242, 106);
+}
+
+h1,h3 {
+    margin: 0;
+    padding: 8px;
+    text-align: center;
 }
