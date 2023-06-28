@@ -1,5 +1,7 @@
 let playerSelection;
 let computerSelection;
+let playerScore = 0;
+let computerScore = 0;
 let choices = ["rock", "paper", "scissors"];
 let beats = {
     "rock": "scissors",
@@ -7,17 +9,39 @@ let beats = {
     "scissors": "paper"
 };
 
+function name(params) {
+    
+}
+
 function computerPlay() {
     return choices[Math.floor(Math.random() * 3)];
 };
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound() {
+    computerSelection = computerPlay();
+    playerSelection = playerSelection();
     if (playerSelection == computerSelection) {
-        return "Tie!";
+        return "tie";
     } else if (beats[computerSelection] == playerSelection) {
-        return "You lose the round!";
+        return "loss";
     } else {
-        return "You win this round!";
+        return "win";
     }
 };
+
+function playGame() {
+    switch (playRound()) {
+        case "tie":
+            console.log("It's a tie!");
+            break;
+        case "win":
+            console.log("You win!");
+            playerScore++;
+            break;
+        default:
+            console.log("You lose!");
+            computerScore++;
+            break;
+    }
+}
