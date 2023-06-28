@@ -14,7 +14,6 @@ function computerPlay() {
     return choices[Math.floor(Math.random() * 6)];
 };
 
-
 function playRound() {
     computerSelection = computerPlay();
     playerSelection = playerSelection();
@@ -45,7 +44,7 @@ function playGame() {
     }
     if (playerScore > computerScore) {
         endGameMessage="Congratulations! You win the game!";
-    } else(playerScore < computerScore) {
+    } else {
         endGameMessage="Too bad! You lose the game!";
     }
-}
+};
