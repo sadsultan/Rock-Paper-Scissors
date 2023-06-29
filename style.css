@@ -21,6 +21,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     transition: 0.3s;
+    font-family: 'pixel', Arial, sans-serif;
+}
+
+.container2 {
+    justify-content: space-evenly;
 }
 
 .title-card {
@@ -35,7 +40,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-family: 'pixel', Arial, sans-serif;
     font-weight: normal;
     box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
 }
@@ -45,7 +49,7 @@ body {
     text-shadow: -5px 5px rgb(67, 67, 2);
 }
 
-h3 {
+.title-card > h3 {
     font-size: 20px;
     text-shadow: -5px 4px rgb(67, 67, 2);
 }
@@ -63,6 +67,7 @@ h3 {
     font-family: 'pixel', Arial, sans-serif;
     cursor: pointer;
     box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
+    transition: 0.1s;
 }
 
 .title-card > button:hover {
@@ -79,11 +84,26 @@ h3 {
     padding: 5px 0;
     text-align: center;
     color: antiquewhite;
+    font-size: small;
 }
 
 .footer > a {
     padding: 5px 0;
     color: yellow;
     text-decoration: none;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+    background-color: rgb(54, 16, 91);
+    border-radius: 10px;
+    border: 4px dashed yellow;
+    color: yellow;
+    font-family: 'pixel', Arial, sans-serif;
+    box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
 }
   

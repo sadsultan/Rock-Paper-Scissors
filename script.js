@@ -49,3 +49,15 @@ function playGame() {
     }
 };
 
+let startButton = document.querySelector("#start");
+let scoreBoard = document.querySelector("#score-board");
+let playerScoreDisplay = document.querySelector("#player-score");
+let container = document.querySelector("#container");
+let computerScoreDisplay = document.querySelector("#computer-score");
+startButton.addEventListener("click", ()=>{
+    startButton.remove();
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
+    container.classList.add("container2");
+    scoreBoard.classList.add("score-board");
+});
