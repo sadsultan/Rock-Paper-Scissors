@@ -23,14 +23,13 @@ body {
     transition: 0.3s;
 }
 
-.title-card{
+.title-card {
     padding: 15px 25px;
     text-align: center;
     background-color: rgb(54, 16, 91);
     border-radius: 10px;
     border: 4px dashed yellow;
     color: yellow;
-    text-shadow: 1px 1px 1px rgb(67, 67, 2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,14 +37,17 @@ body {
     text-align: center;
     font-family: 'pixel', Arial, sans-serif;
     font-weight: normal;
+    box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
 }
 
-h1{
+.title-card > h1 {
     font-size: 30px;
+    text-shadow: -5px 5px rgb(67, 67, 2);
 }
 
 h3 {
     font-size: 20px;
+    text-shadow: -5px 4px rgb(67, 67, 2);
 }
 
 .title-card > .item {
@@ -60,4 +62,5 @@ h3 {
     color: yellow;
     font-family: 'pixel', Arial, sans-serif;
     cursor: pointer;
+    box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
 }
