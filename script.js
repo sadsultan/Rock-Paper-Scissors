@@ -16,7 +16,6 @@ function computerPlay() {
 
 function playRound() {
     computerSelection = computerPlay();
-    playerSelection = playerSelection();
     if (playerSelection == computerSelection) {
         return "tie";
     } else if (beats[computerSelection] == playerSelection) {
@@ -41,6 +40,7 @@ function playGame() {
                 computerScore++;
                 break;
         }
+        playerSelection = "";
     }
     if (playerScore > computerScore) {
         endGameMessage="Congratulations! You win the game!";
@@ -49,6 +49,3 @@ function playGame() {
     }
 };
 
-function playerSelection() {
-    
-};
