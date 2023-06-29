@@ -56,6 +56,8 @@ let container = document.querySelector("#container");
 let computerScoreDisplay = document.querySelector("#computer-score");
 startButton.addEventListener("click", ()=>{
     startButton.remove();
+    playerScoreDisplay.classList.add("card");
+    computerScoreDisplay.classList.add("card");
     playerScoreDisplay.textContent = playerScore;
     computerScoreDisplay.textContent = computerScore;
     container.classList.add("container2");
