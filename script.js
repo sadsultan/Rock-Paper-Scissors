@@ -26,21 +26,20 @@ function playRound() {
 };
 
 function playGame() {
-    for (let i = 0; i < 5; i++) {
-        switch (playRound()) {
-            case "tie":
-                console.log("It's a tie!");
-                break;
-            case "win":
-                console.log("You win!");
-                playerScore++;
-                break;
-            default:
-                console.log("You lose!");
-                computerScore++;
-                break;
-        }
+    switch (playRound()) {
+        case "tie":
+            console.log("It's a tie!");
+            break;
+        case "win":
+            console.log("You win!");
+            playerScore++;
+            break;
+        default:
+            console.log("You lose!");
+            computerScore++;
+            break;
         playerSelection = "";
+        displayOptions();
     }
     if (playerScore > computerScore) {
         endGameMessage="Congratulations! You win the game!";
@@ -62,4 +61,19 @@ startButton.addEventListener("click", ()=>{
     computerScoreDisplay.textContent = computerScore;
     container.classList.add("container2");
     scoreBoard.classList.add("score-board");
+    displayOptions();
 });
+
+
+function displayOptions () {
+    let section = document.getElementById("options"); 
+    for (let i in beats) {
+        let button = document.createElement("button");
+        button.innerHTML = i;
+        section.appendChild(button);
+        button.addEventListener("click", () => {
+            playerSelection = i;
+            playGame();
+        });
+    }
+ }

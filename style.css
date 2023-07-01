@@ -20,7 +20,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    transition: 0.3s;
     font-family: 'pixel', Arial, sans-serif;
 }
 
@@ -41,6 +40,7 @@ body {
     align-items: center;
     text-align: center;
     font-weight: normal;
+    transition: all 0.5s ease;
     box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
 }
 
@@ -103,6 +103,7 @@ body {
     border: 4px dashed yellow;
     color: yellow;
     font-family: 'pixel', Arial, sans-serif;
+    transition: all 0.5s ease;
     box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
 }
 
@@ -122,4 +123,3 @@ body {
     overflow: hidden;
 }
 
-  
