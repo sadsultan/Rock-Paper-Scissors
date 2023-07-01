@@ -123,3 +123,27 @@ body {
     overflow: hidden;
 }
 
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.options > button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: white 2px solid;
+    background-color: purple;
+    color: yellow;
+    font-family: 'pixel', Arial, sans-serif;
+    cursor: pointer;
+    box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
+    transition: 0.1s;
+}
+
+.options > button:hover {
+    background-color: rgb(54, 16, 91);
+    color: white;
+    box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
+}
