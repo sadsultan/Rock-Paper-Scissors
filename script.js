@@ -38,8 +38,7 @@ function playGame() {
             console.log("You lose!");
             computerScore++;
             break;
-        playerSelection = "";
-        displayOptions();
+    playerSelection = "";
     }
     if (playerScore > computerScore) {
         endGameMessage="Congratulations! You win the game!";
@@ -53,12 +52,17 @@ let scoreBoard = document.querySelector("#score-board");
 let playerScoreDisplay = document.querySelector("#player-score");
 let container = document.querySelector("#container");
 let computerScoreDisplay = document.querySelector("#computer-score");
+
+function updateScore() {
+    playerScoreDisplay.textContent = "Your Score:"+ "\n" + playerScore;
+    computerScoreDisplay.textContent = "Computer Score:"+ "\n" + computerScore;
+}
+
 startButton.addEventListener("click", ()=>{
     startButton.remove();
     playerScoreDisplay.classList.add("card");
     computerScoreDisplay.classList.add("card");
-    playerScoreDisplay.textContent = playerScore;
-    computerScoreDisplay.textContent = computerScore;
+    updateScore();
     container.classList.add("container2");
     scoreBoard.classList.add("score-board");
     displayOptions();
@@ -74,6 +78,7 @@ function displayOptions () {
         button.addEventListener("click", () => {
             playerSelection = i;
             playGame();
+            updateScore();
         });
     }
  }
