@@ -26,25 +26,13 @@ function playRound() {
 };
 
 function playGame() {
-    switch (playRound()) {
-        case "tie":
-            console.log("It's a tie!");
-            break;
-        case "win":
-            console.log("You win!");
-            playerScore++;
-            break;
-        default:
-            console.log("You lose!");
-            computerScore++;
-            break;
-    playerSelection = "";
-    }
+    roundResults(playRound());
+    if (playerScore == 5 || computerScore == 5) {
     if (playerScore > computerScore) {
         endGameMessage="Congratulations! You win the game!";
     } else {
         endGameMessage="Too bad! You lose the game!";
-    }
+    }}
 };
 
 let startButton = document.querySelector("#start");
@@ -78,7 +66,28 @@ function displayOptions () {
         button.addEventListener("click", () => {
             playerSelection = i;
             playGame();
-            updateScore();
         });
     }
- }
+}
+
+function roundResults(result) {
+    playerSelection = "";
+    let message=" this round! \n Move on to next Round?"
+    switch (result) {
+        case "tie":
+            message = "You tied" + message;
+            break;
+        case "win":
+            playerScore++;
+            message = "You won" + message;
+            break;
+        default:
+            computerScore++;
+            message = "You lost" + message;
+            break;
+    }
+    updateScore();
+    let roundResult = document.createElement("p");
+    roundResult.textContent = message;
+    container.appendChild(roundResult);
+}
