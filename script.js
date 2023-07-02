@@ -36,8 +36,14 @@ function computerPlay() {
 
 function updateScore(playerScore, computerScore, playerSelection, computerSelection) {
     playerScoreDisplay.textContent = "Your Score:\n\n" + playerScore + "\n\nYou Chose:\n\n " + playerSelection;
-    computerScoreDisplay.textContent = "Computer Score:\n\n"+ computerScore + "\n\nThe Computer chose: \n\n" + computerSelection;
-
+    if (!(computerSelection === "")) {
+        computerScoreDisplay.textContent = "Computer Score:\n\n"+ computerScore + "\n\nThe Computer chose: \n\n Thinking..."; 
+        setTimeout(() => {
+            computerScoreDisplay.textContent = "Computer Score:\n\n"+ computerScore + "\n\nThe Computer chose: \n\n " + computerSelection;
+        },1000);
+    } else {
+        computerScoreDisplay.textContent = "Computer Score:\n\n"+ computerScore + "\n\nThe Computer chose: \n\n " + computerSelection;
+    }
 }
 
 function displayOptions () {
@@ -73,7 +79,7 @@ function playGame() {
     setTimeout(() => {
         addBlur();
         displaySection(message, continueMessage);
-    },3000);
+    },2500);
 }
 
 function playRound(playerSelection, computerSelection) {
