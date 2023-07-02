@@ -18,14 +18,15 @@ let computerScoreDisplay = document.querySelector("#computer-score");
 
 startButton.addEventListener("click", ()=>{
     let titleCard = document.getElementById("title-card");
-    
+
     titleCard.classList.remove("title-card2");
     startButton.remove();
 
     playerScoreDisplay.classList.add("card");
     computerScoreDisplay.classList.add("card");
     scoreBoard.classList.add("score-board");
-    updateScore();
+
+    updateScore(playerScore, computerScore, playerSelection, computerSelection);
     displayOptions();
 });
 
@@ -33,10 +34,10 @@ function computerPlay() {
     return choices[Math.floor(Math.random() * 6)];
 };
 
+function updateScore(playerScore, computerScore, playerSelection, computerSelection) {
+    playerScoreDisplay.textContent = "Your Score:\n\n" + playerScore + "\n\nYou Chose:\n\n " + playerSelection;
+    computerScoreDisplay.textContent = "Computer Score:\n\n"+ computerScore + "\n\nThe Computer chose: \n\n" + computerSelection;
 
-function updateScore() {
-    playerScoreDisplay.textContent = "Your Score:\n" + playerScore + "\nYou Chose: " + playerSelection;
-    computerScoreDisplay.textContent = "Computer Score:"+ computerScore + "\nThe Computer chose: " + computerSelection;
 }
 
 function displayOptions () {
@@ -53,10 +54,9 @@ function displayOptions () {
 }
 
 function playGame() {
-    let message= playRound() + " this round! \n On to next one!!"
+    computerSelection = computerPlay();
+    let message= playRound(playerSelection, computerSelection) + " this round! \n On to next one!!"
     let continueMessage = "Continue";
-
-    addBlur();
 
     if (playerScore == 5 || computerScore == 5) {
         if (playerScore > computerScore) {
@@ -70,16 +70,14 @@ function playGame() {
         computerScore=0
     }
 
-    displaySection(message, continueMessage);
+    setTimeout(() => {
+        addBlur();
+        displaySection(message, continueMessage);
+    },3000);
 }
 
-function playRound() {
-    computerSelection = computerPlay();
-
-    setTimeout(() => {
-        updateScore();
-    }, 1000);
-
+function playRound(playerSelection, computerSelection) {
+    updateScore(playerScore, computerScore, playerSelection, computerSelection);
     if (playerSelection == computerSelection) {
         return "You tied";
     } else if (beats[computerSelection] == playerSelection) {
@@ -109,7 +107,7 @@ function displaySection(message, continueMessage) {
         continueButton.remove()
         displaySection.classList.remove("textbox");
         removeBlur();
-        updateScore();
+        updateScore(playerScore, computerScore, "", "");
     });
 }
 
