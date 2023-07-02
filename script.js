@@ -27,12 +27,6 @@ function playRound() {
 
 function playGame() {
     roundResults(playRound());
-    if (playerScore == 5 || computerScore == 5) {
-    if (playerScore > computerScore) {
-        endGameMessage="Congratulations! You win the game!";
-    } else {
-        endGameMessage="Too bad! You lose the game!";
-    }}
 };
 
 let startButton = document.querySelector("#start");
@@ -47,11 +41,12 @@ function updateScore() {
 }
 
 startButton.addEventListener("click", ()=>{
+    let titleCard = document.getElementById("title-card");
+    titleCard.classList.remove("title-card2");
     startButton.remove();
     playerScoreDisplay.classList.add("card");
     computerScoreDisplay.classList.add("card");
     updateScore();
-    container.classList.add("container2");
     scoreBoard.classList.add("score-board");
     displayOptions();
 });
@@ -87,13 +82,26 @@ function roundResults(result) {
             break;
     }
     updateScore();
-    let roundResult = document.createElement("section");
-    roundResult.classList.add("textbox");
-    roundResult.textContent = message;
-    container.appendChild(roundResult);
     addBlur();
+
+    if (playerScore == 5 || computerScore == 5) {
+        if (playerScore > computerScore) {
+            message="Congratulations! You win the game! \n The computer wants a rematch!";
+        } else {
+            message="Too bad! You lost the game! \n Better luck next time!";
+        }
+        message += "\n Would you like to play again?";
+    }
+
+    let displaySection = document.getElementById("displaySection");
+    displaySection.classList.add("textbox");
+    let roundResult = document.createElement("h2");
+    roundResult.textContent = message;
+    displaySection.appendChild(roundResult);
+
     setTimeout(function() {
         roundResult.remove();
+        displaySection.classList.remove("textbox");
         removeBlur();
     }, 2000);
 }

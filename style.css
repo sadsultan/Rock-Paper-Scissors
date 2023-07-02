@@ -23,8 +23,11 @@ body {
     font-family: 'pixel', Arial, sans-serif;
 }
 
-.container2 {
-    justify-content: center;
+.title-card2 {
+    position: absolute;
+    bottom: 50vh;
+    right: 50vw;
+    transform: translate(50%, 50%);
 }
 
 .title-card {
@@ -40,7 +43,6 @@ body {
     align-items: center;
     text-align: center;
     font-weight: normal;
-    transition: all 0.5s ease;
     box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
 }
 
@@ -58,7 +60,7 @@ body {
     margin: 15px 25px;
 }
 
-.title-card > button {
+button {
     padding: 10px 15px;
     border-radius: 5px;
     border: white 2px solid;
@@ -70,7 +72,7 @@ body {
     transition: 0.1s;
 }
 
-.title-card > button:hover {
+button:hover {
     background-color: rgb(54, 16, 91);
     color: white;
     box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
@@ -118,10 +120,10 @@ body {
 }
 
 .card{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
     border: 2px dotted rgb(250, 250, 249);
     border-spacing: 3px;
     background-color: rgb(109,33,183);
@@ -138,24 +140,6 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-
-.options > button {
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: white 2px solid;
-    background-color: purple;
-    color: yellow;
-    font-family: 'pixel', Arial, sans-serif;
-    cursor: pointer;
-    box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
-    transition: 0.1s;
-}
-
-.options > button:hover {
-    background-color: rgb(54, 16, 91);
-    color: white;
-    box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
 }
 
 .textbox {
