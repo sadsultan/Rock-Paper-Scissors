@@ -157,3 +157,25 @@ body {
     color: white;
     box-shadow: inset -2px 2px rgb(30, 9, 50),-4px 5px rgb(30, 9, 50);
 }
+
+.textbox {
+    position: absolute;
+    top:  50vh;
+    left: 50vw;
+    overflow-wrap: break-word;
+    transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    text-align: center;
+    text-justify: auto ;
+    background-color: rgb(54, 16, 91);
+    border-radius: 10px;
+    border: 4px dashed yellow;
+    color: yellow;
+    font-family: 'pixel', Arial, sans-serif;
+    transition: all 0.2s ease;
+    box-shadow:inset -8px 8px 2px rgb(30, 9, 50);
+}
+
+.blur {
+    filter: blur(5px);
+}

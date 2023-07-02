@@ -72,7 +72,7 @@ function displayOptions () {
 
 function roundResults(result) {
     playerSelection = "";
-    let message=" this round! \n Move on to next Round?"
+    let message=" this round! \n On to next one!!"
     switch (result) {
         case "tie":
             message = "You tied" + message;
@@ -87,7 +87,27 @@ function roundResults(result) {
             break;
     }
     updateScore();
-    let roundResult = document.createElement("p");
+    let roundResult = document.createElement("section");
+    roundResult.classList.add("textbox");
     roundResult.textContent = message;
     container.appendChild(roundResult);
+    addBlur();
+    setTimeout(function() {
+        roundResult.remove();
+        removeBlur();
+    }, 2000);
+}
+
+function addBlur() {
+    let blurElements = document.querySelectorAll(".container > *:not(.textbox)");
+    for (let i = 0; i < blurElements.length; i++) {
+        blurElements[i].classList.add("blur");
+    };
+}
+
+function removeBlur() {
+    let blurElements = document.querySelectorAll(".container > *:not(.textbox)");
+    for (let i = 0; i < blurElements.length; i++) {
+        blurElements[i].classList.remove("blur");
+    };
 }
