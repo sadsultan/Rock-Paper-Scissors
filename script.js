@@ -18,12 +18,14 @@ let computerScoreDisplay = document.querySelector("#computer-score");
 
 startButton.addEventListener("click", ()=>{
     let titleCard = document.getElementById("title-card");
+    
     titleCard.classList.remove("title-card2");
     startButton.remove();
+
     playerScoreDisplay.classList.add("card");
     computerScoreDisplay.classList.add("card");
-    updateScore();
     scoreBoard.classList.add("score-board");
+    updateScore();
     displayOptions();
 });
 
