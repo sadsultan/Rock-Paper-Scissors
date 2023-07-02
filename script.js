@@ -1,5 +1,5 @@
-let playerSelection;
-let computerSelection;
+let playerSelection = "";
+let computerSelection = "";
 let playerScore = 0;
 let computerScore = 0;
 let endGameMessage = "";
@@ -10,35 +10,11 @@ let beats = {
     "scissors": "paper"
 };
 
-function computerPlay() {
-    return choices[Math.floor(Math.random() * 6)];
-};
-
-function playRound() {
-    computerSelection = computerPlay();
-    if (playerSelection == computerSelection) {
-        return "tie";
-    } else if (beats[computerSelection] == playerSelection) {
-        return "loss";
-    } else {
-        return "win";
-    }
-};
-
-function playGame() {
-    roundResults(playRound());
-};
-
 let startButton = document.querySelector("#start");
 let scoreBoard = document.querySelector("#score-board");
 let playerScoreDisplay = document.querySelector("#player-score");
 let container = document.querySelector("#container");
 let computerScoreDisplay = document.querySelector("#computer-score");
-
-function updateScore() {
-    playerScoreDisplay.textContent = "Your Score:"+ "\n" + playerScore;
-    computerScoreDisplay.textContent = "Computer Score:"+ "\n" + computerScore;
-}
 
 startButton.addEventListener("click", ()=>{
     let titleCard = document.getElementById("title-card");
@@ -51,6 +27,15 @@ startButton.addEventListener("click", ()=>{
     displayOptions();
 });
 
+function computerPlay() {
+    return choices[Math.floor(Math.random() * 6)];
+};
+
+
+function updateScore() {
+    playerScoreDisplay.textContent = "Your Score:\n" + playerScore + "\nYou Chose: " + playerSelection;
+    computerScoreDisplay.textContent = "Computer Score:"+ computerScore + "\nThe Computer chose: " + computerSelection;
+}
 
 function displayOptions () {
     let section = document.getElementById("options"); 
@@ -65,23 +50,10 @@ function displayOptions () {
     }
 }
 
-function roundResults(result) {
-    playerSelection = "";
-    let message=" this round! \n On to next one!!"
-    switch (result) {
-        case "tie":
-            message = "You tied" + message;
-            break;
-        case "win":
-            playerScore++;
-            message = "You won" + message;
-            break;
-        default:
-            computerScore++;
-            message = "You lost" + message;
-            break;
-    }
-    updateScore();
+function playGame() {
+    let message= playRound() + " this round! \n On to next one!!"
+    let continueMessage = "Continue";
+
     addBlur();
 
     if (playerScore == 5 || computerScore == 5) {
@@ -91,19 +63,52 @@ function roundResults(result) {
             message="Too bad! You lost the game! \n Better luck next time!";
         }
         message += "\n Would you like to play again?";
+        continueMessage = "Play Again";
+        playerScore=0
+        computerScore=0
     }
 
-    let displaySection = document.getElementById("displaySection");
-    displaySection.classList.add("textbox");
-    let roundResult = document.createElement("h2");
-    roundResult.textContent = message;
-    displaySection.appendChild(roundResult);
+    displaySection(message, continueMessage);
+}
 
-    setTimeout(function() {
+function playRound() {
+    computerSelection = computerPlay();
+
+    setTimeout(() => {
+        updateScore();
+    }, 1000);
+
+    if (playerSelection == computerSelection) {
+        return "You tied";
+    } else if (beats[computerSelection] == playerSelection) {
+        computerScore++;
+        return "You lost";
+    } else {
+        playerScore++;
+        return "You won";
+    }
+};
+
+function displaySection(message, continueMessage) {
+    let displaySection = document.getElementById("displaySection");
+    let roundResult = document.createElement("h2");
+    let continueButton = document.createElement("button");
+
+    displaySection.classList.add("textbox");
+
+    continueButton.innerHTML = continueMessage;
+    roundResult.textContent = message;
+
+    displaySection.appendChild(roundResult);
+    displaySection.appendChild(continueButton);
+
+    continueButton.addEventListener("click", () => {
         roundResult.remove();
+        continueButton.remove()
         displaySection.classList.remove("textbox");
         removeBlur();
-    }, 2000);
+        updateScore();
+    });
 }
 
 function addBlur() {
