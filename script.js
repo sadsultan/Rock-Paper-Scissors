@@ -83,6 +83,7 @@ function playGame() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    removeButtons();
     updateScore(playerScore, computerScore, playerSelection, computerSelection);
     if (playerSelection == computerSelection) {
         return "You tied";
@@ -113,6 +114,7 @@ function displaySection(message, continueMessage) {
         continueButton.remove()
         displaySection.classList.remove("textbox");
         removeBlur();
+        displayOptions();
         updateScore(playerScore, computerScore, "", "");
     });
 }
@@ -128,5 +130,12 @@ function removeBlur() {
     let blurElements = document.querySelectorAll(".container > *:not(.textbox)");
     for (let i = 0; i < blurElements.length; i++) {
         blurElements[i].classList.remove("blur");
+    };
+}
+
+function removeButtons() {
+    let buttons = document.querySelectorAll("#options > *");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].remove();
     };
 }
